@@ -1,4 +1,4 @@
-USE ProyectoIII;
+USE Proyecto;
 
 ------------------------------------------------------------------
 --CREACIÓN DE TABLAS
@@ -44,56 +44,4 @@ CREATE TABLE Componentes
 	PRIMARY KEY(codigoComponente, codigoArticulo),
 	CONSTRAINT FK_comp_art FOREIGN KEY(codigoArticulo) REFERENCES Articulos(codigoArticulo),
 	CONSTRAINT FK_comp FOREIGN KEY(codigoComponente) REFERENCES Articulos(codigoArticulo)
-)
-
-
-
-
---Creación de la tabla de Monedas
-CREATE TABLE Monedas
-(
-	Moneda_ID INT NOT NULL PRIMARY KEY,
-	nombre VARCHAR(20) NOT NULL
-)
-
---Creación de la tabla de Tipo De Cambios
-CREATE TABLE TipoDeCambio
-(
-	TipoDeCambio_ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	valor FLOAT(3) NOT NULL,
-	fecha DATE NOT NULL,
-	esProyectado BIT NOT NULL,
-	FK_moneda1 INT NOT NULL FOREIGN KEY REFERENCES Monedas(Moneda_ID),
-	FK_moneda2 INT NOT NULL FOREIGN KEY REFERENCES Monedas(Moneda_ID)
-)
-
---Creación de la tabla de listas de precio Y sus detalles
-CREATE TABLE ListaDePrecios
-(
-	codigo VARCHAR(50) NOT NULL PRIMARY KEY,
-	descripcion VARCHAR(50) NOT NULL,
-	porGastosAdmi FLOAT(5),
-	porUtilidad FLOAT(5),
-	porOtrosGastos FLOAT(5)
-)
-
-CREATE TABLE DetalleLP
-(
-	codigoListaPrecio VARCHAR(50),
-	FK_articulo VARCHAR(20) FOREIGN KEY REFERENCES Articulos(codigoArticulo),
-
-	CONSTRAINT FK_listaPrecio FOREIGN KEY(codigoListaPrecio) REFERENCES ListaDePrecios(codigo),
-	PRIMARY KEY(codigoListaPrecio)
-)
-
---Creación de la tabla de proyecciones
-CREATE TABLE Proyecciones
-(
-	ID INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
-	fecha DATE,
-	fechaProyeccion DATE,
-	montoProyeccion FLOAT(5),
-
-	FK_articulo VARCHAR(20) FOREIGN KEY REFERENCES Articulos(codigoArticulo),
-	FK_moneda INT FOREIGN KEY REFERENCES Monedas(Moneda_ID)
 )
