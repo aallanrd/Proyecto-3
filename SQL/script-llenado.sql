@@ -15,6 +15,7 @@ insert into articulos values('C','Articulo C', null, null, null, null, 2, null, 
 insert into articulos values('2','Articulo 2', null, null, null, null, 2, null, null, 'JOS', 'DEFAULT');
 insert into articulos values('D','Articulo D', null, null, null, null, 2, null, null, 'JOS', 'DEFAULT');
 insert into articulos values('E','Articulo E', null, null, null, null, 2, null, null, 'JOS', 'DEFAULT');
+insert into articulos values('F','Articulo F', null, null, null, null, 2, null, null, 'JOS', 'DEFAULT');
 
 --Insertar componentes a los artículos
 insert into componentes values('1', 'A', 1);
@@ -29,6 +30,13 @@ insert into componentes values('2', 'C', 1);
 INSERT INTO Monedas VALUES(1, 'Colón');
 INSERT INTO Monedas VALUES(2, 'Dolar');
 INSERT INTO Monedas VALUES(3, 'Euro');
+
+--Insertar una lista de precio
+INSERT INTO ListaDePrecios VALUES('PUB', 'Lista de precio para clientes en general', 0.05, 0.01, 0);
+INSERT INTO DetalleLP VALUES('PUB','1', 40);
+INSERT INTO DetalleLP VALUES('PUB','2', 35);
+INSERT INTO DetalleLP VALUES('PUB','E', 55);
+
 
 --Insertar tipos de cambio
 INSERT INTO TipoDeCambio VALUES (525.94, (SELECT DATEADD(month, -12, '2015-05-01')), 0, 1, 2);
@@ -47,47 +55,3 @@ INSERT INTO TipoDeCambio VALUES (526.80, (SELECT DATEADD(month, -0, '2015-05-01'
 
 --Proyectar un tipo de cambio
 exec sp_ProyectarTipoCambio 1, 'Colón', 'Dolar';
-
-
-
-
-
---PRUEBA DE CÓDIGO DE PROCEDIMIENTO
-DECLARE @valor FLOAT,
-		@tipoCambioAnt FLOAT,
-		@tipoCambioAct FLOAT,
-		@total FLOAT,
-		@n INT
-set @total = 0.0;
-SET @n = 0;
-
-DECLARE tiposDeCambio CURSOR STATIC LOCAL FOR
-		SELECT t.valor FROM 
-		TipoDeCambio t INNER JOIN Monedas m
-		ON t.FK_moneda1 = m.Moneda_ID AND m.nombre LIKE 'Colón'
-		INNER JOIN Monedas m1
-		ON t.FK_moneda2 = m1.Moneda_ID AND m1.nombre LIKE 'Dolar'
-
-OPEN tiposDeCambio;
-	FETCH NEXT FROM tiposDeCambio INTO @tipoCambioAnt;
-	WHILE @@FETCH_STATUS = 0
-	BEGIN
-		FETCH NEXT FROM tiposDeCambio INTO @tipoCambioAct;
-		--PRINT @tipoCambioAct
-		--PRINT @tipoCambioAnt
-		--PRINT ' '
-		SET @total = @total + (@tipoCambioAct - @tipoCambioAnt); 
-		SET @tipoCambioAnt = @tipoCambioAct;
-		SET @n = @n + 1;
-	END
-
-CLOSE tiposDeCambio;
-print @tipoCambioAct + (@total / @n) * 1;
-DEALLOCATE tiposDeCambio;
-
-
-
-
-
-
-
