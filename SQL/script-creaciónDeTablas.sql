@@ -80,10 +80,11 @@ CREATE TABLE ListaDePrecios
 CREATE TABLE DetalleLP
 (
 	codigoListaPrecio VARCHAR(50),
-	FK_articulo VARCHAR(20) FOREIGN KEY REFERENCES Articulos(codigoArticulo),
-
+	codigoArticulo VARCHAR(20),-- FOREIGN KEY REFERENCES Articulos(codigoArticulo),
+	precio FLOAT(5),
+	PRIMARY KEY(codigoListaPrecio, codigoArticulo),
 	CONSTRAINT FK_listaPrecio FOREIGN KEY(codigoListaPrecio) REFERENCES ListaDePrecios(codigo),
-	PRIMARY KEY(codigoListaPrecio)
+	CONSTRAINT FK_articulo FOREIGN KEY(codigoArticulo) REFERENCES Articulos(codigoArticulo)
 )
 
 --Creación de la tabla de proyecciones
