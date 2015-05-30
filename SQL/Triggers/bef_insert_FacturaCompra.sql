@@ -42,7 +42,7 @@ END
 --///////////////////////////////////////////////////////////////////////////////////
 select * from usuarios;
 select * from proveedores;
-insert into FacturaCompra values (  'Art2', 'MarcaN', 'ModeloN', 3,5,18500,getDate(),'ARD','ARD','UN');
+insert into FacturaCompra values (  'Art4', 'MarcaN', 'ModeloN', 3,5,18500,getDate(),'ARD','ARD','UN');
 
 select * from FacturaCompra;
 select * from Articulos;
@@ -52,3 +52,5 @@ delete from FacturaCompra where codigo = '2';
 
 delete from Articulos where codigoArticulo = 'D8B1DDFB'
 truncate table FacturaCompra;
+
+use proyecto
