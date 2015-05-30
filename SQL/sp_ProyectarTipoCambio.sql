@@ -1,3 +1,4 @@
+
 -- ================================================
 --Procedimiento para generar una proyección del tipo de cambio
 -- ================================================

@@ -39,19 +39,21 @@ INSERT INTO DetalleLP VALUES('PUB','E', 55);
 
 
 --Insertar tipos de cambio
-INSERT INTO TipoDeCambio VALUES (525.94, (SELECT DATEADD(month, -12, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.27, (SELECT DATEADD(month, -11, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.31, (SELECT DATEADD(month, -10, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.27, (SELECT DATEADD(month, -9, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.23, (SELECT DATEADD(month, -8, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.24, (SELECT DATEADD(month, -7, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.65, (SELECT DATEADD(month, -6, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.76, (SELECT DATEADD(month, -5, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.80, (SELECT DATEADD(month, -4, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.84, (SELECT DATEADD(month, -3, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.76, (SELECT DATEADD(month, -2, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.75, (SELECT DATEADD(month, -1, '2015-05-01')), 0, 1, 2);
-INSERT INTO TipoDeCambio VALUES (526.80, (SELECT DATEADD(month, -0, '2015-05-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (525.94, (SELECT DATEADD(month, -12, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.27, (SELECT DATEADD(month, -11, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.31, (SELECT DATEADD(month, -10, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.27, (SELECT DATEADD(month, -9, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.23, (SELECT DATEADD(month, -8, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.24, (SELECT DATEADD(month, -7, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.65, (SELECT DATEADD(month, -6, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.76, (SELECT DATEADD(month, -5, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.80, (SELECT DATEADD(month, -4, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.84, (SELECT DATEADD(month, -3, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.76, (SELECT DATEADD(month, -2, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.75, (SELECT DATEADD(month, -1, '2015-06-01')), 0, 1, 2);
+INSERT INTO TipoDeCambio VALUES (526.80, (SELECT DATEADD(month, -0, '2015-06-01')), 0, 1, 2);
 
 --Proyectar un tipo de cambio
 exec sp_ProyectarTipoCambio 1, 'Colón', 'Dolar';
+--Proyectar una lista de precio y sus artículos
+exec sp_proyectarListaPrecio 'PUB', 2;

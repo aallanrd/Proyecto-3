@@ -33,14 +33,16 @@ BEGIN
 
 	/*Seleccionar el tipo de cambio para el mes al que se desea hacer la proyección*/
 	SELECT @tipoCambio = t.valor FROM TipoDeCambio t
-	WHERE MONTH(t.fecha) = @mesProyectado AND t.esProyectado = 0 AND t.FK_moneda1 = 1 AND t.FK_moneda2 = 2
+	WHERE MONTH(t.fecha) = @mesProyectado AND t.esProyectado = 1 AND t.FK_moneda1 = 1 AND t.FK_moneda2 = 2
 
 	OPEN articulosListaPrecio
+	FETCH NEXT FROM articulosListaPrecio INTO @codigoArticulo, @precio;
 	WHILE @@FETCH_STATUS = 0
 	BEGIN
-		FETCH NEXT FROM articuloListaPrecio INTO @codigoArticulo, @precio
-		INSERT INTO Proyecciones VALUES(GETDATE(), DATEADD(MONTH, @pCantidadMeses), @precio * @tipoCambio, @codigoArticulo, 1)
+		INSERT INTO Proyecciones VALUES(GETDATE(), DATEADD(MONTH, @pCantidadMeses, GETDATE()), @precio * @tipoCambio, @codigoArticulo, 1)
+		FETCH NEXT FROM articulosListaPrecio INTO @codigoArticulo, @precio
 	END
+	CLOSE articulosListaPrecio
     
 END
 GO
