@@ -37,17 +37,29 @@ CREATE TABLE FacturaCompra
     usuario Varchar(10) NOT NULL FOREIGN KEY REFERENCES Usuarios(codigoUsuario),
     unidad Varchar(10) NOT NULL FOREIGN KEY REFERENCES Unidades(codigo)
 
-)
-
---/////////////////////////////////////////////////////////////////
-
+);
 --////////////////////////////////////////////////////////////////
 --Creación de la tabla de familias
 CREATE TABLE Familias
 (
 	codigo VARCHAR(10) NOT NULL PRIMARY KEY,
 	nombre VARCHAR(25) NOT NULL
-)
+);
+GO
+
+--Creación de la tabla de familias
+CREATE TABLE Componentes
+(
+	codigo VARCHAR(10) NOT NULL PRIMARY KEY,
+	idArticulo VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo)
+);
+GO
+CREATE TABLE ComponentesArticulos
+(	
+	codigoArt  VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo),
+	codigoComp VARCHAR(10) NOT NULL FOREIGN KEY REFERENCES Componentes(codigo)
+);
+GO
 
 CREATE TABLE Articulos
 (
