@@ -2,9 +2,9 @@
  use proyecto;
 
  
- drop procedure listar;
+ --drop procedure listar_ComponentesdeArticulo;
  --drop procedure listar
-Create Procedure listar (@codArt varchar(20))
+Create Procedure listar_ComponentesdeArticulo (@codArt varchar(20))
 AS
 Begin
 	Select c.idArticulo , a.nbrArticulo from Componentes c
@@ -13,6 +13,6 @@ Begin
 	      componentesArticulos ca ON ca.codigoComp = c.codigo  
 		 
 		  INNER JOIN
-		  articulos a ON ca.codigoArt = a.codigoArticulo
+		  articulos a ON c.idArticulo = a.codigoArticulo
 		  where ca.codigoArt = @codArt;
 End

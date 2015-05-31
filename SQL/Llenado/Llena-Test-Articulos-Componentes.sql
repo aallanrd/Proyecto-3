@@ -17,10 +17,13 @@ go
 	Insert into  componentesArticulos values ('8AE07531',1);
 	Insert into  componentesArticulos values ('8AE07531',2);
 	Insert into  componentesArticulos values ('8AE07531',3);
-    
+	Insert into  componentesArticulos values ('1F417857',1);
+    Insert into  componentesArticulos values ('1F417857',2);
+
 	Select * from componentesArticulos;
 
 	
 
   --Delete from   componentes where codigo = 'Abc';
-   execute listar '8AE07531'
+   execute listar_ComponentesdeArticulo '1F417857'
+   execute listar_EsComponenteDe        '20EC0C06';
