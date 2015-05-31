@@ -1,4 +1,6 @@
 
+use proyecto; 
+
 CREATE TABLE Clientes
 (
 	codigoCliente VARCHAR(10) NOT NULL PRIMARY KEY,
