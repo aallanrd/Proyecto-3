@@ -40,7 +40,7 @@ CREATE TABLE Articulos_Cotizados
 
 CREATE TABLE BCotizaciones
 (
-	     codigo             int IDENTITY(1,1) Primary Key ,
+	     codigo             int  ,
          fecha              DATE ,
          condicionesPago    VARCHAR(55),
          condicionesEntrega VARCHAR(55),
@@ -59,7 +59,7 @@ CREATE TABLE BCotizaciones
 
 CREATE TABLE BArticulos_Cotizados
 (
-    codigoArtCotizado int identity (1,1) primary key,
+    codigoArtCotizado int ,
 	codigoCotizacion int ,
 	codigoArticulo   VARCHAR(20) ,
 	cantidad int ,

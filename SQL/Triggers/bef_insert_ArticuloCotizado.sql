@@ -36,3 +36,10 @@ BEGIN
  insert into Articulos_Cotizados values ( @codigoCotizacion,@codigoArticulo,@cantidad,@precioCotizado);
 
 END
+
+select * from Articulos;
+select * from cotizaciones;
+select * from Articulos_Cotizados
+insert into Articulos_Cotizados values (3,'8ABB17C7',1,0);
+delete from articulos_cotizados where codigoArtCotizado = 4;
+truncate table articulos_cotizados;

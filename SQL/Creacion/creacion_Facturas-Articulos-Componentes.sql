@@ -46,25 +46,9 @@ CREATE TABLE Familias
 	nombre VARCHAR(25) NOT NULL
 );
 GO
-use proyecto
-drop table componentes;
-use proyecto
-
---Creación de la tabla de familias
-CREATE TABLE Componentes
-(
-	codigo int identity (1,1)  NOT NULL PRIMARY KEY,
-	idArticulo VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo)
-);
-GO
-use proyecto
-CREATE TABLE ComponentesArticulos
-(	
-	codigoArt  VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo),
-	codigoComp int NOT NULL FOREIGN KEY REFERENCES Componentes(codigo)
-);
-GO
-
+--use proyecto
+--drop table componentes;
+--use proyecto
 CREATE TABLE Articulos
 (
 	codigoArticulo VARCHAR(20) NOT NULL PRIMARY KEY,
@@ -81,4 +65,20 @@ CREATE TABLE Articulos
 	FK_familia VARCHAR(10) NOT NULL FOREIGN KEY REFERENCES Familias(codigo)
 
 )
+--Creación de la tabla de familias
+CREATE TABLE Componentes
+(
+	codigo int identity (1,1)  NOT NULL PRIMARY KEY,
+	idArticulo VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo)
+);
+GO
+use proyecto
+CREATE TABLE ComponentesArticulos
+(	
+	codigoArt  VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo),
+	codigoComp int NOT NULL FOREIGN KEY REFERENCES Componentes(codigo)
+);
+GO
+
+
 
