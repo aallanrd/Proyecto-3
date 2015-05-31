@@ -2,18 +2,17 @@
  use proyecto;
 
  
-
+ drop procedure listar;
  --drop procedure listar
 Create Procedure listar (@codArt varchar(20))
 AS
 Begin
-SELECT Componentes.idArticulo, ComponentesArticulos.codigoArt as idComp,Articulos.nbrArticulo as NombreArticulo 
-FROM Componentes
-INNER JOIN ComponentesArticulos
-ON Componentes.codigo=ComponentesArticulos.codigoComp
-
-INNER JOIN Articulos
-ON Articulos.codigoArticulo = ComponentesArticulos.codigoArt
-
-where idArticulo = @codArt;
+	Select c.idArticulo , a.nbrArticulo from Componentes c
+		 
+		  INNER JOIN 
+	      componentesArticulos ca ON ca.codigoComp = c.codigo  
+		 
+		  INNER JOIN
+		  articulos a ON ca.codigoArt = a.codigoArticulo
+		  where ca.codigoArt = @codArt;
 End
