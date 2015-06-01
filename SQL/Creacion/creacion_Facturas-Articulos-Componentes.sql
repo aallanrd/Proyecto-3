@@ -72,7 +72,7 @@ CREATE TABLE Componentes
 	idArticulo VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo)
 );
 GO
-use proyecto
+
 CREATE TABLE ComponentesArticulos
 (	
 	codigoArt  VARCHAR(20) NOT NULL FOREIGN KEY REFERENCES Articulos(codigoArticulo),
