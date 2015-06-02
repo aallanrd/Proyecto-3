@@ -25,5 +25,6 @@ go
 	
 
   --Delete from   componentes where codigo = 'Abc';
-   execute listar_ComponentesdeArticulo '1F417857'
-   execute listar_EsComponenteDe        '20EC0C06';
+   execute listar_ComponentesdeArticulo '8AE07531'
+
+   execute listar_EsComponenteDe        'A1CA90A9';

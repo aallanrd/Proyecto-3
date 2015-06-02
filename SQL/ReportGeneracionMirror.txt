@@ -1,0 +1,8 @@
+Configurando extremos
+
+- Configurando extremo en el servidor principal (ALLANPC\MSSQLALLAN) (Correcto)
+
+- Configurando extremo en el servidor reflejado (ALLANPC\MIRROR) (Correcto)
+
+
+
