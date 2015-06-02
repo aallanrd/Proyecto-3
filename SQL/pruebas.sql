@@ -49,5 +49,37 @@ DEALLOCATE tiposDeCambio;
 
 
 
+---|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+--Proyectar un tipo de cambio
+exec sp_ProyectarTipoCambio 1, 'Colón', 'Dolar';
+--Proyectar una lista de precio y sus artículos
+exec sp_proyectarListaPrecio 'PUB', 1;
+
+
+select * from TipoDeCambio
+
+
+select * from Proyecciones
+
+delete from TipoDeCambio 
+where esProyectado = 1
+
+select * from DetalleLP
+
+
+
+
+
+
+--Listar componentes de un artículo
+exec listar_ComponentesDeArticulo 'C'
+--Listas los articulos de que un componente es parte
+exec listar_EsComponenteDe '2'
+
+
+
+
 
 

@@ -40,7 +40,7 @@ BEGIN
    begin 
       PRINT 'Borrando EMITIDA' 
 	   ---------------------------- Lineas de Cotizacion ---------------------
-	  execute saveToBitacora @codigo; 
+	  exec saveToBitacora @codigo; 
 	   ---------------------------- Inserta en Bitacora ---------------------
 	  insert into BCotizaciones values (@codigo, GETDATE(), @condicionesPago,@condicionesEntrega,@vigencia,@observaciones,@listaPrecios,@moneda,@estado,@codCliente,@codUsuario);
        ---------------------------- Borra Cotizacion ---------------------
